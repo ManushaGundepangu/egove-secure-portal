@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Government Service Portal</h4>
+        </div>
+        <div class="card-body">
+            <form action="/handle_selection" method="POST">
+    <label class="form-label">Select the service you need:</label>
+    <select name="service_name" class="form-select mb-4" required>
+        <option value="" selected disabled>-- Choose Service --</option>
+        <option value="aadhar">Aadhar Update (Name/Address)</option>
+        <option value="scholarship">National Scholarship (DBT)</option>
+        <option value="voter">Voter ID Registration</option>
+    </select>
+    <button type="submit" class="btn btn-success w-100">Continue to Application Form</button>
+</form>
+        </div>
+    </div>
+</div>
+{% endblock %}

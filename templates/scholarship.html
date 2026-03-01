@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">National Scholarship Portal (NSP) - Form 2026</h5>
+            <span class="badge bg-warning text-dark">DBT Enabled</span>
+        </div>
+        <div class="card-body p-4">
+            <form action="/submit_detailed_app" method="POST">
+                <input type="hidden" name="service_name" value="National Scholarship">
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Scheme Name</label>
+                        <select class="form-select" name="scheme" required>
+                            <option value="Post-Matric">Post-Matric Scholarship for Minorities</option>
+                            <option value="Merit-cum-Means">Merit-cum-Means Scholarship</option>
+                            <option value="Central-Sector">Central Sector Scheme for College Students</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Student Name (As per Aadhaar)</label>
+                        <input type="text" name="new_name" class="form-control" placeholder="Full Name" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Institution/College Name</label>
+                    <input type="text" name="new_address" class="form-control" placeholder="Enter College Name and AISHE Code" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Annual Family Income</label>
+                        <input type="number" class="form-control" placeholder="₹" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Contact Number</label>
+                        <input type="text" name="contact" class="form-control" placeholder="+91" required>
+                    </div>
+                </div>
+
+                <div class="alert alert-secondary small">
+                    <i class="bi bi-info-circle"></i> By clicking submit, your data will be verified against the <b>National Data Exchange (NDX)</b> via simulated API gateway.
+                </div>
+
+                <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Submit to State Nodal Officer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

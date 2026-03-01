@@ -1,0 +1,35 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow border-0">
+        <div class="card-header bg-success text-white"><h5>Income Certificate Application</h5></div>
+        <div class="card-body">
+            <form action="/submit_detailed_app" method="POST">
+    <input type="hidden" name="service_name" value="Income Certificate">
+
+    <div class="mb-3">
+        <label>Annual Family Income (INR)</label>
+        <input type="number" name="income_val" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Reason for Application</label>
+        <textarea name="reason" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Aadhar Number</label>
+        <input type="text" name="aadhar_number" class="form-control" pattern="[0-9]{12}" required>
+    </div>
+    <div class="mb-3">
+        <label>Contact Number</label>
+        <input type="text" name="contact" class="form-control" pattern="[0-9]{10}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit for Verification</button>
+</form>
+        </div>
+    </div>
+</div>
+{% endblock %}

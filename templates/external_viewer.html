@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="card shadow-lg p-5 border-0 rounded-4">
+        <div class="card-body">
+            <h3 class="text-primary mb-3">Redirecting to Official Portal</h3>
+            <p class="lead">You are now accessing the <strong>{{ name }}</strong> services through the official secure gateway.</p>
+            
+            <div class="alert alert-warning py-3 my-4">
+                <strong>Security Reminder:</strong> Ensure the new tab shows a <strong>.gov.in</strong> address before sharing sensitive data.
+            </div>
+
+            <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-5 shadow-sm">
+                Open Official Website
+            </a>
+            <div class="mt-4">
+    <a href="/dashboard" class="btn btn-link text-decoration-none text-muted">
+        Changed your mind? Return to Dashboard
+    </a>
+</div>
+            
+            <div class="mt-4">
+                <a href="/dashboard" class="text-secondary text-decoration-none">← Cancel and return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
