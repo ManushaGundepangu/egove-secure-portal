@@ -332,4 +332,4 @@ def download_aadhar(ref_id):
     # 'name' comes from the session you created during login
     return render_template("digital_aadhar.html", ref_no=ref_id, name=session.get("name"))
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
