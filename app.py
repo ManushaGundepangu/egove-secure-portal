@@ -14,10 +14,11 @@ bcrypt = Bcrypt(app)
 # Secure Database Connection
 def get_db():
     return pymysql.connect(
-        host="localhost",
-        user="root",
-        password="", # Force it to be empty string, not None
-        database="egov_secure_db",
+        host=os.getenv("MYSQLHOST", "localhost"),
+        user=os.getenv("MYSQLUSER", "root"),
+        password=os.getenv("MYSQLPASSWORD", ""),
+        database=os.getenv("MYSQLDATABASE", "egov_secure_db"),
+        port=int(os.getenv("MYSQLPORT", 3306)),
         cursorclass=pymysql.cursors.DictCursor
     )
 
