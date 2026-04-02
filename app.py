@@ -14,13 +14,13 @@ bcrypt = Bcrypt(app)
 # Secure Database Connection
 def get_db():
     return pymysql.connect(
-        host=os.getenv("MYSQLHOST", "localhost"),
-        user=os.getenv("MYSQLUSER", "root"),
-        password=os.getenv("MYSQLPASSWORD", ""),
-        database=os.getenv("MYSQLDATABASE", "egov_secure_db"),
-        port=int(os.getenv("MYSQLPORT", 3306)),
+        host="sql12.freesqldatabase.com",
+        user="sql12822035",
+        password="5e2NBVUJ1W",
+        database="sql12822035",
+        port=3306,
         cursorclass=pymysql.cursors.DictCursor
-    ) 
+    )
 
 @app.route("/")
 def index():
