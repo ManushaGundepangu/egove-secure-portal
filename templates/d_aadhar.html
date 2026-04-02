@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .aadhar-card { width: 400px; border: 2px solid #b52e31; padding: 10px; border-radius: 10px; }
+        .header { border-bottom: 2px solid #b52e31; margin-bottom: 10px; }
+    </style>
+</head>
+<body onload="window.print()"> <div class="container d-flex justify-content-center mt-5">
+        <div class="aadhar-card shadow">
+            <div class="header d-flex justify-content-between">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/1200px-Aadhaar_Logo.svg.png" width="50">
+                <div class="text-end small">Government of India</div>
+            </div>
+            <div class="row">
+                <div class="col-4"><div style="height:100px; background:#eee; border:1px solid #ccc"></div></div>
+                <div class="col-8">
+                    <h6 class="mb-0">{{ name }}</h6>
+                    <p class="small">Ref ID: {{ ref_no }}<br>DOB: 01/01/2000<br>Gender: Female</p>
+                </div>
+            </div>
+            <div class="text-center mt-3" style="letter-spacing: 5px; font-weight: bold; font-size: 1.2rem;">
+                XXXX XXXX 1234
+            </div>
+            <div class="bg-danger text-white text-center small mt-2">Aadhaar - Mera Adhikaar, Meri Pehchaan</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow border-0 mx-auto" style="max-width: 650px;">
+        <div class="card-header bg-primary text-white text-center py-3">
+            <h4 class="mb-0">Aadhar Update Request Form</h4>
+            <p class="mb-0 small">Official E-Governance Secure Portal</p>
+        </div>
+        <div class="card-body p-4">
+            <form action="/submit_detailed_app" method="POST">
+                <input type="hidden" name="service_name" value="Aadhar Update">
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">New Name (Full Name)</label>
+                    <input type="text" name="new_name" class="form-control" placeholder="Enter name as per proof" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Aadhar Number (12-Digits)</label>
+                    <input type="text" name="aadhar_number" class="form-control" pattern="[0-9]{12}" placeholder="XXXX XXXX XXXX" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Contact Number (For OTP)</label>
+                    <input type="tel" name="contact" class="form-control" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">New Residential Address</label>
+                    <textarea name="new_address" class="form-control" rows="3" placeholder="Enter full address including PIN code" required></textarea>
+                </div>
+
+                <div class="alert alert-secondary py-2 small">
+                    <strong>Note:</strong> Verification is mandatory. An OTP will be sent to the contact number above.
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-success btn-lg">Submit Securely</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-between align-items-center mb-4">
+            <h2>Welcome, {{ session['user_name'] }}!</h2>
+            <a href="/logout" class="btn btn-danger btn-sm">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Your Profile</h5>
+                    <p class="card-text">
+                        <strong>Email:</strong> {{ session['user_email'] }}<br>
+                        <strong>Account Role:</strong> <span class="badge bg-info text-dark">User</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-white"><h5 class="mb-0">Apply for New Services</h5></div>
+        <div class="card-body">
+            <div class="list-group">
+                <a href="/select_service/aadhar" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    Aadhar Update (Name/Address) <span class="badge bg-primary rounded-pill">Apply</span>
+                </a>
+                <a href="/select_service/scholarship" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    National Scholarship (DBT) <span class="badge bg-primary rounded-pill">Apply</span>
+                </a>
+                <a href="/select_service/voter" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <div>
+        <h6 class="mb-0">Voter ID Registration</h6>
+        <small class="text-muted">Official Election Commission Portal</small>
+    </div>
+    <span class="btn btn-sm btn-outline-primary">Apply Now</span>
+</a>
+                <a href="/select_service/ration" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    Ration Card Application <span class="badge bg-primary rounded-pill">Apply Here</span>
+</a>
+                <a href="/select_service/caste" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    Caste Certificate <span class="badge bg-primary rounded-pill">Apply</span>
+</a>
+<a href="/select_service/income" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    Income Certificate <span class="badge bg-primary rounded-pill">Apply</span>
+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">Your Submitted Applications</h5>
+        </div>
+        <div class="card-body">
+        <table class="table table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Application_ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for app in applications %}
+<tr>
+    <td><strong>{{ app.service_name }}</strong></td>
+
+    <td>
+        {% if app.status == "Approved" %}
+            <span class="badge bg-success">Approved</span>
+        {% else %}
+            <span class="badge bg-warning text-dark">{{ app.status }}</span>
+        {% endif %}
+    </td>
+
+    <td><code>{{ app.ref_id }}</code></td>
+
+    <td>
+    <a href="{{ url_for('download_receipt', ref_id=app.ref_id) }}" class="btn btn-sm btn-outline-primary">
+        Download Receipt
+    </a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="alert alert-success shadow py-5">
+        <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: green;"></i>
+        <h2 class="mt-3">Application Submitted!</h2>
+        <p class="lead">Your request for <strong>{{ service }}</strong> has been sent for verification.</p>
+        <hr>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+    <a href="/apply" class="btn btn-primary">Apply for Another Service</a>
+    <a href="/dashboard" class="btn btn-dark">Go to Dashboard</a>
+</div>
+    </div>
+</div>
+{% endblock %}
