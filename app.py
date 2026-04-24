@@ -12,13 +12,15 @@ app.secret_key = os.getenv("SECRET_KEY")
 bcrypt = Bcrypt(app)
 
 # Secure Database Connection
+
 def get_db():
     return pymysql.connect(
-        host="sql12.freesqldatabase.com",
-        user="sql12822035",
-        password="5e2NBVUJ1W",
-        database="sql12822035",
-        port=3306,
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+        port=int(os.getenv("DB_PORT", 3306)),
+        ssl={"ca": None},
         cursorclass=pymysql.cursors.DictCursor
     )
 
